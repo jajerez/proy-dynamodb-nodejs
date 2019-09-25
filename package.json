@@ -1,0 +1,23 @@
+{
+  "name": "serverless-aws-nodejs-dynamodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://mriso@bitbucket.org/mriso/serverless-aws-nodejs.git"
+  },
+  "author": "Michele Riso <riso.michele@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/mriso/serverless-aws-nodejs-dynamodb#readme",
+  "dependencies": {
+    "aws-sdk": "^2.496.0",
+    "body-parser": "^1.19.0",
+    "express": "*",
+    "serverless-http": "*",
+    "swagger-ui-express": "^4.0.7"
+  }
+}

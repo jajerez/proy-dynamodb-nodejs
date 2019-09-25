@@ -1,0 +1,135 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0",
+        "title": "Portafoleo profesional",
+        "description": "APP Rest usando NodeJS y  DynamoDB en un servidor AWS Api-gateway y lambda",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    }
+    ,"servers": [
+        
+        {
+            "url": "/dev/",
+            "description": "API Rest Montada en un AWS"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Usuarios",
+            "description": "API para manejar un usuario"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/usuario": {
+            
+            "post": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Crea un nuevo usuario",
+                "requestBody": {
+                    "description": "Objeto usuarios",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Usuario"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    "400": {
+                        "description": "Fallo,  no existe el metodo."
+                    }
+                }
+            }
+        },
+        "/usuario/{id}": {
+            "parameters": [
+                {
+                    "name": "id"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Obtiene un producto por ID",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": " producto por id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Usuario"
+                        }
+                    },
+                    "404": {
+                        "description": "Fallo,  formato de la peticion incorrecta"
+                    }
+                }
+            }
+        }
+    },                   
+    "definitions": {
+        "id": {
+            "properties": {
+                "uuid": {
+                    "type": "string"
+                }
+            }
+        },
+        
+		"Usuario": {
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+		"Usuarios": {
+            "type": "object",
+            "properties": {
+                "usuarios": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/Usuario"
+                    }
+                }
+            }
+        }
+		
+    }
+}
