@@ -5,9 +5,9 @@ custom:
 
 provider:
   name: aws 
-  runtime: nodejs8.10
+  runtime: nodejs16.x
   stage: dev
-  region: eu-central-1
+  region: us-east-1
   iamRoleStatements:
     - Effect: 'Allow'
       Action:
