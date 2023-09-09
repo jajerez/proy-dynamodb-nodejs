@@ -12,7 +12,7 @@ Crea y obtiene un usuario a traves de nodejs y dynamodb
 Ejecutar los siguientes comando para instalar las dependencias necesarias para el proyecto
 
 ```sh
-$ npm install --save aws-sdk body-parser swagger
+$ npm install --save aws-sdk body-parser swagger-ui-express swagger-jsdoc express serverless-http
 ``` 
   
 
